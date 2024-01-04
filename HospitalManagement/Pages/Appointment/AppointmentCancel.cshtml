@@ -1,0 +1,68 @@
+﻿@page
+@model HospitalManagement.Pages.Appointment.AppointmentCancelModel
+@{
+	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+<style>
+	body {
+		color: black;
+		font-family: cursive;
+	}
+
+	form {
+		font-size: 14px;
+		max-width: 400px;
+/* 		margin: auto; */
+		margin-top: 20px;
+	}
+
+	label {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+
+	.row {
+		margin-bottom: 15px;
+	}
+</style>
+<h3>Cancel Appointment</h3>
+<form method="post" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="@Model.appointmentinfo.id" />
+	<div class="row mb-3">
+		<label  class="col-sm-03 col-form-label" name="id">ID: @Model.appointmentinfo.id </label>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label" name="name"  >Name :@Model.appointmentinfo.name</label>
+	</div>
+	<div class="row mb-3">
+		<label asp-for="email.To" name="email"> Email: @Model.appointmentinfo.email</label>
+	<input type="hidden" asp-for="email.To" value="@Model.appointmentinfo.email" style="background-color: #2874A6;" /><br />
+	</div>
+	@* <div class="row mb-3">
+		<label class="col-sm-03 col-form-label" name="history">History: @Model.appointmentinfo.history</label>
+	</div> *@
+	<label class="col-sm-03 col-form-label">Respond: Cancel</label>
+	@* <div class="col-sm-03">
+		<input type="text" class="form-control" name="respond" value="@Model.appointmentinfo.respond" />
+	</div> *@
+	
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">reason</label>
+		<div class="col-sm-04">
+			<textarea asp-for="email.Body"  ></textarea>
+			
+		</div>
+	</div>
+
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button asp-page-handler="SendEmail" class="btn btn-primary">Cancel</button>
+		</div>
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<a class="btn btn-primary" href="/Appointment/AppointmentView" role="button">Back</a>
+		</div>
+	</div>
+
+
+</form>

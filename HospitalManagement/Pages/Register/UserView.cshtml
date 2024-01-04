@@ -1,0 +1,71 @@
+﻿@page
+@model HospitalManagement.Pages.Register.UserViewModel
+@{
+}
+<style>
+    body {
+        background-color: #2874A6;
+    }
+
+    table {
+        font-size: 13px
+    }
+
+</style>
+<br />
+<h3>List of Patients</h3>
+
+<a class="btn btn-primary btn-sm" href='/Register/UserRegister'> User Create</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Names</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.listPatients)
+        {
+
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.role</td>
+                <td>@item.createdat</td>
+
+                <td>
+                    <a class="btn btn-primary btn-sm" href='/Register/UserEdit?id=@item.id'> Edit</a>
+
+                    <a class="btn btn-primary btn-sm" href='/Register/UserDelete?id=@item.id'> Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<h3>Send Respond</h3>
+
+
+ 
+<form method="post">
+    <label class="col-sm-03 col-form-label">To</label>
+    <input type="email" asp-for="sendmail.To" placeholder="Enter Email..." /> 
+
+    <label class="col-sm-03 col-form-label">To</label>
+    <input type="text" asp-for="sendmail.Subject" placeholder="Subject..." /> 
+
+    <label class="col-sm-03 col-form-label">To</label>
+    <textarea asp-for="sendmail.Body" cols="20" rows="15" placeholder=""></textarea> </td>
+
+    <input type="submit" class="btn-success" value="send " />
+    @ViewData["Message"]
+</form>
+

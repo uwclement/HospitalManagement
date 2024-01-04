@@ -1,0 +1,93 @@
+﻿@page
+@model HospitalManagement.Pages.Register.UserRegisterModel
+@{
+}
+<style>
+	body {
+		background-color: #2874A6;
+	}
+
+	form {
+		font-size: 14px;
+		max-width: 400px;
+		margin: auto;
+		margin-top: 20px;
+	}
+
+	label {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+
+	.row {
+		margin-bottom: 15px;
+	}
+	.view{
+		max-width:
+	}
+</style>
+<div class="view">
+<h3>New User</h3>
+@if (Model.errorMessage.Length > 0)
+{
+	<div class="alert alert-warning alert-dismissible fade show " role="alert">
+		<strong>@Model.errorMessage</strong>
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+	</div>
+}
+<form method="POST">
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Name</label>
+		<div class="col-sm-03">
+			<input type="text" class="form-control" name="name" value="@Model.userInfo.name" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Email</label>
+		<div class="col-sm-04">
+			<input type="text" class="form-control" name="email" value="@Model.userInfo.email" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Phone</label>
+		<div class="col-sm-04">
+			<input type="number" class="form-control" name="phone" value="@Model.userInfo.phone" />
+		</div>
+	</div>
+		
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Password</label>
+		<div class="col-sm-04">
+			<input type="password" class="form-control" name="password" value="@Model.userInfo.password" />
+		</div>
+	</div>
+
+		<div class="form-group">
+			<label for="status">Role:</label>
+			<select id="status" name="status" class="form-control">
+				<option value="Available" selected="@(Model.userInfo.role == "Patient")">Available</option>
+				<option value="Occupied" selected="@(Model.userInfo.role == "Admin")">Occupied</option>
+			</select>
+		</div>
+	@if (Model.successMessage.Length > 0)
+	{
+		<div class="row mb-3">
+			<div class="col-sm-9">
+				<div class="alert alert-success alert-dismissible fade show " role="alert">
+					<strong>@Model.successMessage</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+				</div>
+			</div>
+		</div>
+	}
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<a class="btn btn-primary" href="/Index" role="button">Cancel</a>
+		</div>
+	</div>
+
+</form>
+</div>

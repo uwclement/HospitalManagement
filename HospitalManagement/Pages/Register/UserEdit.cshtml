@@ -1,0 +1,70 @@
+﻿@page
+@model HospitalManagement.Pages.Register.UserEditModel
+@{
+}
+<style>
+	body {
+		background-color: #2874A6;
+	}
+
+	form {
+		font-size: 14px;
+		max-width: 400px;
+		margin: auto;
+		margin-top: 20px;
+	}
+
+	label {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+
+	.row {
+		margin-bottom: 15px;
+	}
+</style>
+<h3>User Approve</h3>
+<form method="POST">
+	<input type="hidden" name="id" value="@Model.userinfo.id" />
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Name</label>
+		<div class="col-sm-03">
+			<input type="text" class="form-control" name="name" value="@Model.userinfo.name" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Email</label>
+		<div class="col-sm-04">
+			<input type="text" class="form-control" name="email" value="@Model.userinfo.email" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Phone</label>
+		<div class="col-sm-04">
+			<input type="number" class="form-control" name="phone" value="@Model.userinfo.phone" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Role</label>
+		<div class="col-sm-04">
+			<input type="text" class="form-control" name="role" value="@Model.userinfo.role" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Password</label>
+		<div class="col-sm-04">
+			<input type="text" class="form-control" name="password" value="@Model.userinfo.password" />
+		</div>
+	</div>
+	
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Approve</button>
+		</div>
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<a class="btn btn-primary" href="/Index" role="button">Cancel</a>
+		</div>
+	</div>
+
+</form>

@@ -1,0 +1,61 @@
+﻿@page
+@model HospitalManagement.Pages.Service.ServiceEditModel
+@{
+	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+<style>
+	body {
+		color: black;
+		font-family: cursive
+	}
+
+	form {
+		font-size: 14px;
+		max-width: 400px;
+		margin: auto;
+		margin-top: 20px;
+	}
+
+	label {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+
+	.row {
+		margin-bottom: 15px;
+	}
+</style>
+<h3>Edit Service</h3>
+<form method="POST">
+	<input type="hidden" name="id" value="@Model.serviceinfo.id" />
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Name</label><br>
+		<div class="col-sm-03">
+			<input type="text" class="form-control" name="servicename" value="@Model.serviceinfo.servicename" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="status">Service Status:</label>
+		<select id="status" name="status" class="form-control">
+			<option value="Available" name="status" selected="@(Model.serviceinfo.status == "Available")">Available</option>
+			<option value="Not Available" name="status" selected="@(Model.serviceinfo.status == "Not Available")">Not Available</option>
+		</select>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Doctor</label>
+		<div class="col-sm-04">
+			<input type="text" class="form-control" name="doctor" value="@Model.serviceinfo.doctor" />
+		</div>
+	</div>
+
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Edit</button>
+		</div>
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<a class="btn btn-primary" href="/Service/ServiceView" role="button">Cancel</a>
+		</div>
+	</div>
+
+</form>

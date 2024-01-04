@@ -1,0 +1,52 @@
+﻿@page
+@model HospitalManagement.Pages.Register.Doctor.DoctorViewModel
+@{
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+<style>
+
+    table {
+        font-size: 13px
+    }
+
+</style>
+<br />
+<h3>List of Doctor</h3>
+
+<a class="btn btn-primary btn-sm" href='/Doctor/DoctorCreate'> Create Doctor</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Specialization</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.servicelist)
+        {
+
+            <tr>
+                <td>@item.id</td>
+                <td>@item.names</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.specialization</td>
+
+
+                <td>
+                    <a class="btn btn-primary btn-sm" href='/Doctor/DoctorEdit?id=@item.id'> Edit</a>
+
+                    <a class="btn btn-primary btn-sm" href='/Doctor/DoctorDelete?id=@item.id'> Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary btn-sm" href='/Service/ServiceView'>Back</a>

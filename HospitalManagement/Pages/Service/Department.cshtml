@@ -1,0 +1,50 @@
+﻿@page
+@model HospitalManagement.Pages.Service.DepartmentModel
+@{
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+<style>
+    body {
+        color: black;
+        font-family: cursive
+    }
+
+    table {
+        font-size: 13px
+    }
+
+</style>
+<br />
+<h3>List of Department</h3>
+
+<a class="btn btn-primary btn-sm" href='/Service/CreateDepartment'> Create Department</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Department  Name</th>
+            <th>Head of Department</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.deptlist)
+        {
+
+            <tr>
+                <td>@item.id</td>
+                <td>@item.deptname</td>
+                <td>@item.hod</td>
+
+
+                <td>
+                    <a class="btn btn-primary btn-sm" href='/Service/DepartmentEdit?id=@item.id'> Edit</a>
+
+                    <a class="btn btn-primary btn-sm" href='/Service/DepartmentDelete?id=@item.id'> Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

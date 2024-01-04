@@ -1,0 +1,83 @@
+﻿@page
+@model HospitalManagement.Pages.Patient.PatientEditModel
+@{
+}
+<style>
+	body {
+		background-color: #2874A6;
+	}
+
+	form {
+		font-size: 14px;
+		max-width: 400px;
+		margin: auto;
+		margin-top: 20px;
+	}
+
+	label {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+
+	.row {
+		margin-bottom: 15px;
+	}
+</style>
+<h3>Edit Patient</h3>
+<form method="POST">
+	<input type="hidden" name="id" value="@Model.patientinfo.id"/>
+
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">First Name</label>
+		<div class="col-sm-03">
+			<input type="text" class="form-control" name="fname" value="@Model.patientinfo.fname" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Last Name</label>
+		<div class="col-sm-04">
+			<input type="text" class="form-control" name="lname" value="@Model.patientinfo.lname" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Contact</label>
+		<div class="col-sm-04">
+			<input type="number" class="form-control" name="contact" value="@Model.patientinfo.contact" />
+		</div>
+	</div>
+		<div class="row mb-3">
+			<label class="col-sm-03 col-form-label">Gender</label>
+			<div class="col-sm-04">
+				<input type="text" class="form-control" name="gender" value="@Model.patientinfo.gender" />
+			</div>
+		</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">DOB</label>
+		<div class="col-sm-04">
+			<input type="date" class="form-control" name="dob" value="@Model.patientinfo.DOB" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">Address</label>
+		<div class="col-sm-04">
+			<input type="text" class="form-control" name="address" value="@Model.patientinfo.address" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-03 col-form-label">History</label>
+		<div class="col-sm-04">
+			<input type="text" class="form-control" name="history" value="@Model.patientinfo.history" />
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Update</button>
+		</div>
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<a class="btn btn-primary" href="/Index" role="button">Cancel</a>
+		</div>
+	</div>
+
+</form>
+

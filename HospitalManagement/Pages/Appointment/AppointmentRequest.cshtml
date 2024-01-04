@@ -1,0 +1,216 @@
+﻿@page
+@model HospitalManagement.Pages.Appointment.AppointmentRequestModel
+@{
+
+    Layout = "~/Pages/Shared/empty.cshtml";
+}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Sidebar 01</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/css/style1.css" rel="stylesheet" />
+
+    <style>
+        body{
+            color:black;
+            font-family: cursive;
+        }
+
+        .service-container {
+            margin-top: 20px;
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            background-color: transparent;
+            border-collapse: collapse;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+            .table th, .table td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .table th {
+                background-color: #2874A6;
+                color: #fff;
+            }
+
+            .table tbody tr:hover {
+                background-color: #f5f5f5;
+            }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        .btn-primary {
+            background-color: #2874A6;
+            color: #fff;
+            border: 1px solid #2874A6;
+        }
+
+            .btn-primary:hover {
+                background-color: #1c5d90;
+                border: 1px solid #1c5d90;
+            }
+
+            .btn-primary:active,
+            .btn-primary:focus {
+                background-color: #1c5d90;
+                border: 1px solid #1c5d90;
+            }
+
+        .service-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 15px;
+            background-color: transparent;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #17202A;
+        }
+
+            .service-card a {
+                margin-right: 10px;
+            }
+
+            .service-card:hover {
+                transform: scale(1.1)
+            }
+    </style>
+
+</head>
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-4 pt-5">
+                <img class="img logo rounded-circle mb-5" src="~/pics/doctor_5502692.png" />
+
+                <label class="name" name="id">@Model.userName </label>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a href="/Doctor/DoctorView" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Service</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact Us</a>
+                    </li>
+
+                </ul>
+
+                <div class="footer">
+                </div>
+
+            </div>
+
+        </nav>
+
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary btn-sm">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <ul class="nav navbar-nav ml-auto">
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Index">LogOut</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <h3>Request Appointment</h3>
+            @if (Model.errorMessage.Length > 0)
+            {
+                <div class="alert alert-warning alert-dismissible fade show " role="alert">
+                    <strong>@Model.errorMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                </div>
+            }
+            <form method="POST">
+                <div class="row mb-3">
+                    @* <label class="col-sm-03 col-form-label">Name: @Model.userName</label> *@
+                    <div class="col-sm-04">
+                        <input type="hidden" class="form-control" name="name" value="@Model.userName" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-03 col-form-label">Email: @Model.userEmail</label>
+                    <div class="col-sm-04">
+                        <input type="hidden" class="form-control" name="email" value="@Model.userEmail" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-03 col-form-label">Service Name: @Model.serviceinfo.servicename</label>
+                    <div class="col-sm-03">
+                        <input type="hidden" class="form-control" name="servicename" value="@Model.serviceinfo.servicename" />
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <label class="col-sm-03 col-form-label">History</label>
+                    <div class="col-sm-04">
+                        <textarea asp-for="@Model.serviceinfo.history" name="history" cols="60" rows="5" placeholder=" How Are you Filling"></textarea>
+
+                    </div>
+                </div>
+                @if (Model.successMessage.Length > 0)
+                {
+                    <div class="row mb-3">
+                        <div class="col-sm-9">
+                            <div class="alert alert-success alert-dismissible fade show " role="alert">
+                                <strong>@Model.successMessage</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="row mb-3">
+                    <div class="offset-sm-3 col-sm-3 d-grid">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="offset-sm-3 col-sm-3 d-grid">
+                        <a class="btn btn-primary" href="/Appointment/AppointmentPage" role="button">Cancel</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+       </div>
+</body>
+</html>
+
+
+	

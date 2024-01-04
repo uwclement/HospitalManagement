@@ -1,0 +1,58 @@
+﻿@page
+@model HospitalManagement.Pages.Appointment.AppointmentViewModel
+@{
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+<h3>List of Appointments</h3>
+
+<a class="btn btn-primary btn-sm" href='/Appointment/AppointmentPage'> User Create</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Names</th>
+            <th>Email</th>
+            <th>Service</th>
+             <th>History</th> 
+            <th>Created At</th> 
+            <th>Respond</th> 
+            @* <th>Reason</th> *@ 
+            <th>Action</th> 
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.appointmentlist)
+        {
+
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                 <td>@item.email</td>
+                 <td>@item.service</td>
+                <td>@item.history</td> 
+                 <td>@item.createdat</td>   
+                 <td>@item.respond</td>   
+                 @* <td>@item.reason</td>   *@ 
+
+                <td>
+                    
+                    <a class="btn btn-primary btn-sm" href='/Appointment/AppointmentAssign?id=@item.id&service=@item.service'>Approve</a>
+
+                    <a class="btn btn-primary btn-sm" href='/Appointment/AppointmentCancel?id=@item.id'>Cancel</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<style>
+
+    table{
+        font-size:12px;
+    }
+</style>
+
+
+

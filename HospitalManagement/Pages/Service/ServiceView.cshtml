@@ -1,0 +1,102 @@
+﻿@page
+@model HospitalManagement.Pages.Service.ServiceViewModel
+@{
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+
+    .service-container {
+        margin-top: 20px;
+    }
+
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        background-color: transparent;
+        border-collapse: collapse;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #2874A6;
+            color: #fff;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+    .btn-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .btn-primary {
+        background-color: #2874A6;
+        color: #fff;
+        border: 1px solid #2874A6;
+    }
+
+        .btn-primary:hover {
+            background-color: #1c5d90;
+            border: 1px solid #1c5d90;
+        }
+
+        .btn-primary:active,
+        .btn-primary:focus {
+            background-color: #1c5d90;
+            border: 1px solid #1c5d90;
+        }
+
+    .service-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        padding: 15px;
+        background-color: transparent;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: #17202A;
+    }
+
+        .service-card a {
+            margin-right: 10px;
+        }
+
+        .service-card:hover {
+            transform: scale(1.1)
+        }
+</style>
+<br />
+<h3>List of Services</h3>
+
+<a class="btn btn-primary btn-sm" href='/Service/ServiceCreate'>Create Service</a>
+
+<div class="service-container">
+    @foreach (var item in Model.servicelist)
+    {
+        <div class="service-card">
+            <strong>ID:</strong> @item.id<br />
+            <strong>Service Name:</strong> @item.servicename<br />
+            <strong>Department:</strong> @item.department<br />
+            <strong>Status:</strong> @item.status<br />
+            <strong>Doctor:</strong> @item.doctor<br />
+
+            <div>
+                <a class="btn btn-primary btn-sm" href='/Service/ServiceEdit?id=@item.id'>Edit</a>
+                <a class="btn btn-primary btn-sm" href='/Service/ServiceDelete?id=@item.id'>Delete</a>
+                <a class="btn btn-primary btn-sm" href='/Service/AddSession?servicename=@item.servicename'>Add Sesion</a>
+            </div>
+        </div>
+        
+    }
+</div>
+<a class="btn btn-primary btn-sm" href='/Service/ServiceView'>Back</a>

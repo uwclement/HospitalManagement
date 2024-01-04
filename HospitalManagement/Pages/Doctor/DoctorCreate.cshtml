@@ -1,0 +1,54 @@
+﻿@page
+@model HospitalManagement.Pages.Doctor.DoctorCreateModel
+@{
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    @if (@Model.message.Length > 0)
+    {
+        <div class="alert alert-info">
+            <span>@Model.message</span>
+        </div>
+    }
+
+    <h3 class="text-center label">Create Doctor</h3>
+    <hr />
+
+    <form method="POST" class="mt-4" asp-page-handler="OnPost">
+        @Html.AntiForgeryToken()
+        <div class="row mt-4">
+            <div class="form-group col">
+                <label for="fullName">Doctor Name</label>
+                <input type="text" class="form-control mt-2" name="fullName" placeholder="Doctor names" value="">
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+
+            <div class="form-group col">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control mt-2" name="email" placeholder="Doctor email" value="">
+            </div>
+
+            <div class="form-group col">
+                <label for="Marks"></label>
+                <input type="text" class="form-control mt-2" name="phone" placeholder="Phone Number" value="">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="form-group col">
+                <label for="specialization">specialization</label>
+                <input type="text" class="form-control mt-2" name="specialization" placeholder="Doctor specialization" value="">
+            </div>
+
+            <div class="form-group col">
+                <label for="password">PassWord</label>
+                <input type="password" class="form-control mt-2" name="password" placeholder="password" value="">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
+
+</div>

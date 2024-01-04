@@ -1,0 +1,70 @@
+﻿@page
+@model HospitalManagement.Pages.User.UserCreateModel
+@{
+}
+<style>
+	body {
+		background-color: #2874A6;
+	}
+
+	form {
+		font-size: 14px;
+		max-width: 400px;
+		margin: auto;
+		margin-top: 20px;
+	}
+
+	label {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+
+	.row {
+		margin-bottom: 15px;
+	}
+	.container3{
+		max-width:500px;
+		max-height:700px;
+		background-color: #F7DC6F;
+	}
+</style>
+<div class="container3">
+		
+		<form method="POST">
+		<h3>New Patient</h3>
+		@if (Model.ErrorMessage.Length > 0)
+		{
+			<div class="alert alert-warning alert-dismissible fade show " role="alert">
+				<strong>@Model.ErrorMessage</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+			</div>
+		}
+			
+			<div class="row mb-3">
+				<label class="col-sm-03 col-form-label">Address</label>
+				<div class="col-sm-04">
+					<input type="text" class="form-control" name="address" value="@Model.patientinfo.address" />
+				</div>
+			</div>
+
+			@if (Model.SuccessMessage.Length > 0)
+			{
+				<div class="row mb-3">
+					<div class="col-sm-9">
+						<div class="alert alert-success alert-dismissible fade show " role="alert">
+							<strong>@Model.SuccessMessage</strong>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+						</div>
+					</div>
+				</div>
+			}
+			<div class="row mb-3">
+				<div class="offset-sm-3 col-sm-3 d-grid">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+				<div class="offset-sm-3 col-sm-3 d-grid">
+					<a class="btn btn-primary" href="/" role="button">Cancel</a>
+				</div>
+			</div>
+	</form>
+</div>

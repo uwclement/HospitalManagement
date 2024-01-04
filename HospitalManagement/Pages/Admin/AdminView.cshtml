@@ -1,0 +1,193 @@
+﻿@page
+@using System.Data.SqlClient;
+
+<style> 
+	.all{
+
+		display:flex;
+		direction:flex;
+    }
+            .navbar
+
+        {
+            padding: 14px 16px;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        .navbar-nav .nav-item {
+            margin-top: -18px;
+            margin-left: 50px;
+        }
+
+        .logot {
+            margin-left: 200px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            color: #fff;
+            margin-top: -15px;
+        }
+
+        .sidebar a {
+            display: flex;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .sidebar li {
+            list-style: none;
+        }
+
+        .navbar-nav .nav-item a:hover {
+            background-color: #1B4F7A;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .footer {
+            padding: 10px 0;
+            background-color: #f8f9fa;
+            margin-top: auto;
+        }
+
+        .hlogo {
+            max-width: 50px;
+            max-height: 50px;
+            margin-left: -70px;
+        }
+
+        .sidebar {
+            background-color: #2874A6;
+            max-width: 200px;
+            height: 700px;
+        }
+
+        .welcome {
+            background-color: #2874A6;
+            padding: 20px;
+            font-size: 15px;
+        }
+@{
+	Layout = "~/Pages/Shared/empty.cshtml";
+	<style> 
+	.all{
+
+		display:flex;
+		direction:flex;
+    }
+            .navbar
+
+        {
+            padding: 14px 16px;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        .navbar-nav .nav-item {
+            margin-top: -18px;
+            margin-left: 50px;
+        }
+
+        .logot {
+            margin-left: 200px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            color: #fff;
+            margin-top: -15px;
+        }
+
+        .sidebar a {
+            display: flex;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .sidebar li {
+            list-style: none;
+        }
+
+        .navbar-nav .nav-item a:hover {
+            background-color: #1B4F7A;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .footer {
+            padding: 10px 0;
+            background-color: #f8f9fa;
+            margin-top: auto;
+        }
+
+        .hlogo {
+            max-width: 50px;
+            max-height: 50px;
+            margin-left: -70px;
+        }
+
+        .sidebar {
+            background-color: #2874A6;
+            max-width: 200px;
+            height: 600px;
+            margin-top:-30px;
+        }
+
+        .welcome {
+            background-color: #2874A6;
+            padding: 20px;
+            font-size: 15px;
+        }
+	
+	</style>
+	<div class ="all">
+		<div>
+			<header>
+				<div class="sidebar">
+					<ul>
+
+						<li>
+							<h4 class="welcome"> Welcome Admin</h4>
+						</li>
+
+	<li><a class="btn" href='/Doctor/DoctorView'>Doctor</a></li>
+						@* <li><a class="btn" href='/Patient/PatientView'></a></li> *@
+                    <li><a class="btn" href='/Service/ServiceView'>Service</a></li>
+
+					</ul>
+					<div>
+						<a class="btn" id="logot" href='/Index'>LOGOUT</a>
+					</div>
+
+				</div>
+			</header>
+		</div>
+	<div>dcksd</div>    
+
+	</div>
+		
+		
+		
+
+
+}

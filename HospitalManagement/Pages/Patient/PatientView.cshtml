@@ -1,0 +1,61 @@
+﻿@page
+@model HospitalManagement.Pages.Patient.PatientViewModel
+@{
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+<style>
+    body{
+        background-color: #2874A6;
+    }
+    table{
+        font-size:13px
+
+    }
+
+
+</style>
+<br />
+<h3>List of Patients</h3>
+
+<a class="btn btn-primary btn-sm" href='/Patient/PatientCreate'> New Patient</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Contact Number</th>
+            <th>Address</th>
+            <th>Medical History</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.listPatients)
+        {
+
+            <tr>
+                <td>@item.id</td>
+                <td>@item.fname</td>
+                <td>@item.lname</td>
+                <td>@item.DOB</td>
+                <td>@item.gender</td>
+                <td>@item.contact</td>
+                <td>@item.address</td>
+                <td>@item.history</td>
+                <td>@item.createdat</td>
+
+                <td>
+                    <a class="btn btn-primary btn-sm" href='/Patient/PatientEdit?id=@item.id'> Edit</a>
+
+                    <a class="btn btn-primary btn-sm" href='/Patient/PatientDelete?id=@item.id'> Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
